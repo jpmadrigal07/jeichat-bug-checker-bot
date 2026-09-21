@@ -65,6 +65,16 @@ Website and Page are required. The rest is optional but makes CONFIRM/REFUTE mor
 
 The bot waits 15 seconds, then comments in the ticket thread. If Website/Page are missing from the **description**, it asks for that template even when earlier chat messages already contain example URLs. Fill the description, **remove Bug, add Bug again** to retry.
 
+## Deploy (Coolify)
+
+This bot is one long-running process. It is **not** a website, so it does not need a domain.
+
+1. Push this repo to GitHub (include `Dockerfile`).
+2. In Coolify: **New resource → Application** → this repo.
+3. Build pack: **Dockerfile** (`Dockerfile` at the repo root).
+4. Do **not** assign a domain. Do not enable the HTTP proxy.
+5. Set env vars (same as `.env.example`, with the live API URL). Prefer `CURSOR_RUNTIME=cloud` so this image does not need Playwright browsers.
+
 ## Env
 
 | Variable | Purpose |
